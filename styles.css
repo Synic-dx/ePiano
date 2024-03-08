@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --clr-cyan: rgb(0, 238, 255);
+}
+
+body {
+    background-color: #000000e0;
+    padding: 10px;
+    font-family: Anta, Poppins, Verdana, Geneva, Tahoma, sans-serif;
+    color: aliceblue;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    --webkit-user-select: none;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#piano {
+    background-color: #070707;
+    width: 90vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-self: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 21px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    position: absolute;
+    top: 25vh;
+    overflow: hidden;
+    padding: 10px 10px 2px 10px;
+}
+
+#pianolabel {
+   font-family: Anta, Verdana, Geneva, Tahoma, sans-serif;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   position: absolute;
+   top: 10%;
+}
+
+.hoveranimation:hover {
+    color: #fff;
+    text-shadow: 0 0 1px var(--clr-cyan),
+                0 0 5px var(--clr-cyan),
+                0 0 10px var(--clr-cyan),
+                0 0 20px var(--clr-cyan);
+  }
+
+
+h1 {
+    align-self: flex-start;
+    position: absolute;
+    left: 3%;
+    font-size: 3rem;
+}
+
+credit {
+    align-self: flex-end;
+    position: absolute;
+    right: 5%;
+    top: 1%
+}
+
+.keys {
+    display: flex;
+    overflow: none;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    top: 37%;
+    align-self: center;
+    height: 55%;
+    margin-top: 15px;
+}
+
+.keywhite {
+    flex: 1;
+    background-color: #ffffff;
+    position: relative;
+    width: 4%;
+    height: 100%;
+    margin: 2px;
+    float: left;
+    border-radius: 0 0 5px 5px;
+  }
+
+.keywhite:hover {
+    background-color: #ffffffc9;
+}
+
+.keyblack {
+    background-color: #18181b;
+    height: 60%;
+    position: relative;
+    bottom: 73.5px;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: 30px;
+    border-radius: 0 0 5px 5px;
+    z-index: 10;
+}
+
+.keyblack:hover {
+    background-color: #2d2e36;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 21px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+a, a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--clr-cyan);
+}
+
+@media (max-width: 1000px) {
+  
+    keys {
+        height: 50px;
+    }
+    .zero, .two {
+        display: none;
+    }
+}
