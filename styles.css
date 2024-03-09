@@ -54,14 +54,6 @@ body {
    position: relative;
 }
 
-.hoveranimation:hover {
-    color: #fff;
-    text-shadow: 0 0 1px var(--clr-cyan),
-                0 0 5px var(--clr-cyan),
-                0 0 10px var(--clr-cyan),
-                0 0 20px var(--clr-cyan);
-  }
-
 
 h1 {
     align-self: flex-start;
@@ -98,6 +90,10 @@ credit {
     margin-top: 15px;
 }
 
+small {
+    font-size: 0.7rem;
+}
+
 .keywhite {
     flex: 1;
     background-color: #ffffff;
@@ -114,8 +110,12 @@ credit {
     flex-direction: column-reverse;
   }
 
-.keywhite:hover, .keywhite.pressed {
+.keywhite:hover {
     background-color: #ffffffc9;
+}
+
+.keywhite.pressed {
+    background-color: #ffffffc0;
 }
 
 .keyblack {
@@ -156,9 +156,18 @@ footer {
 }
 
 a, a:visited {
-    color: #ffffff;
+    color: aliceblue;
     text-decoration: none;
 }
+
+.hoveranimation:hover {
+    color: #fff;
+    text-shadow: 0 0 1px var(--clr-cyan),
+                0 0 5px var(--clr-cyan),
+                0 0 10px var(--clr-cyan),
+                0 0 20px var(--clr-cyan);
+  }
+
 
 a:hover {
     text-decoration: none;
@@ -180,5 +189,14 @@ a:hover {
 
     credit {
         font: 0.5rem;
+    }
+
+    small {
+        display: none;
+    }
+
+    noteDisplay {
+        width: moz-fit-content;
+        width: fit-content;
     }
 }

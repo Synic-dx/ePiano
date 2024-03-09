@@ -1,4 +1,4 @@
-// Selecting the piano keys using document.querySelector and their respective ids
+// selecting piano keys using their ids
 const C3 = document.querySelector('#C3');
 const Db3 = document.querySelector('#Db3');
 const D3 = document.querySelector('#D3');
@@ -86,27 +86,56 @@ C6.onclick = function() { playNote('C6') };
 
 // Define a mapping from keys to note (octave 4)
 const keyMappings = {
-    'a': 'C4',
-    'w': 'Db4',
-    's': 'D4',
-    'e': 'Eb4',
-    'd': 'E4',
-    'f': 'F4',
-    't': 'Gb4',
-    'g': 'G4',
-    'y': 'Ab4',
-    'h': 'A4',
-    'u': 'Bb4',
-    'j': 'B4',
-    'k': 'C5'
+  'q': 'C3',
+  '2': 'Db3',
+  'w': 'D3',
+  '3': 'Eb3',
+  'e': 'E3',
+  'r': 'F3',
+  '5': 'Gb3',
+  't': 'G3',
+  '6': 'Ab3',
+  'y': 'A3',
+  '7': 'Bb3',
+  'u': 'B3',
+    'z': 'C4',
+    's': 'Db4',
+    'x': 'D4',
+    'd': 'Eb4',
+    'c': 'E4',
+    'v': 'F4',
+    'g': 'Gb4',
+    'b': 'G4',
+    'h': 'Ab4',
+    'n': 'A4',
+    'j': 'Bb4',
+    'm': 'B4',
+    ',': 'C5',
+
+    'l': 'Db5',
+    '.': 'D5',
+    ';': 'Eb5',
+    '/': 'E5',
+    'o': 'F5',
+    '0': 'Gb5',
+    'p': 'G5',
+    '-': 'Ab5',
+    '[': 'A5',
+    '=': 'Bb5',
+    ']': 'B5',
+
+    '\u005C': 'C6'
 };
 
+noteDisplay = document.querySelector('#noteDisplay');
+
 document.body.addEventListener('keydown', function(e) {
-    const key = e.key.toLowerCase();
+    const key = e.key;
     if (keyMappings[key]) {
       let pianoKey = document.querySelector('#' + keyMappings[key]);
       pianoKey.classList.add('pressed');
       playNote(keyMappings[key]);
+      noteDisplay.innerText = keyMappings[key]; // update noteDisplay's text
     }
 });
   
