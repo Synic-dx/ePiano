@@ -45,11 +45,13 @@ body {
 
 #pianolabel {
    font-family: Anta, Verdana, Geneva, Tahoma, sans-serif;
-   width: 100%;
+   width: 95%;
+   height: 30%;
    display: flex;
    flex-direction: row;
-   position: absolute;
-   top: 10%;
+   justify-content: space-between;
+   margin: 0 3%;
+   position: relative;
 }
 
 .hoveranimation:hover {
@@ -63,16 +65,22 @@ body {
 
 h1 {
     align-self: flex-start;
-    position: absolute;
-    left: 3%;
     font-size: 3rem;
 }
 
+#noteDisplay {
+    width: 20%;
+    height: 50px;
+    background-color: #1a1717c5;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    padding: 12px 0;
+}
+
 credit {
-    align-self: flex-end;
-    position: absolute;
-    right: 5%;
-    top: 1%
+    text-align: right;
 }
 
 .keys {
@@ -84,8 +92,7 @@ credit {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    position: absolute;
-    top: 37%;
+    position: relative;
     align-self: center;
     height: 55%;
     margin-top: 15px;
@@ -94,15 +101,20 @@ credit {
 .keywhite {
     flex: 1;
     background-color: #ffffff;
-    position: relative;
+    position: static;
     width: 4%;
     height: 100%;
     margin: 2px;
     float: left;
     border-radius: 0 0 5px 5px;
+    color: #000000;
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
-.keywhite:hover {
+.keywhite:hover, .keywhite.pressed {
     background-color: #ffffffc9;
 }
 
@@ -110,15 +122,20 @@ credit {
     background-color: #18181b;
     height: 60%;
     position: relative;
-    bottom: 73.5px;
+    top: -41.5%;
     margin-left: -18px;
     margin-right: -17px;
     width: 35px;
     border-radius: 0 0 5px 5px;
     z-index: 10;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 5px;
 }
 
-.keyblack:hover {
+.keyblack:hover, .keyblack.pressed {
     background-color: #2d2e36;
 }
 
@@ -155,5 +172,13 @@ a:hover {
     }
     .zero, .two {
         display: none;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    credit {
+        font: 0.5rem;
     }
 }
