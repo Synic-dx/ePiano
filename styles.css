@@ -112,6 +112,9 @@ small {
     font-size: 1.5rem;
     display: flex;
     flex-direction: column-reverse;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 21px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
 .keywhite:hover {
@@ -126,7 +129,7 @@ small {
     background-color: #18181b;
     height: 60%;
     position: relative;
-    top: -41.5%;
+    top: -41%;
     margin-left: -18px;
     margin-right: -17px;
     width: 35px;
@@ -137,6 +140,9 @@ small {
     display: flex;
     flex-direction: column-reverse;
     padding-bottom: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 21px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .keyblack:hover, .keyblack.pressed {
