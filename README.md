@@ -1,5 +1,6 @@
 # **ePiano**
 Virtual Piano- made with Javascript.
 
-![image](https://github.com/Synic-dx/ePiano/assets/75749422/d7fbdb6b-9404-41f6-8daa-ba9c367842d0)
+![image](https://github.com/Synic-dx/ePiano/assets/75749422/04609e20-f4b2-40b6-bf4c-35a0ad0d1699)
+
 
