@@ -39,13 +39,14 @@ const C6 = document.querySelector('#C6');
 
 let noteDirectory = 'notes';
 
-// Function to play note
 function playNote(note) {
-  let audio = new Audio(noteDirectory + '/' + note + '.mp3');
-  audio.play();
+  audioFiles[note].play();
+  audioFiles[note].onended = function () {
+    audioFiles[note].currentTime = 0;
+  };
 }
 
-// Assigning 'onclick' properties to each key to play the respective note
+// onlclicks
 C3.onclick = function() { playNote('C3') };
 Db3.onclick = function() { playNote('Db3') };
 D3.onclick = function() { playNote('D3') };
@@ -84,7 +85,7 @@ Bb5.onclick = function() { playNote('Bb5') };
 B5.onclick = function() { playNote('B5') };
 C6.onclick = function() { playNote('C6') };
 
-// Define a mapping from keys to note (octave 4)
+// keyboard
 const keyMappings = {
   'q': 'C3',
   '2': 'Db3',
@@ -135,7 +136,7 @@ document.body.addEventListener('keydown', function(e) {
       let pianoKey = document.querySelector('#' + keyMappings[key]);
       pianoKey.classList.add('pressed');
       playNote(keyMappings[key]);
-      noteDisplay.innerText = keyMappings[key]; // update noteDisplay's text
+      noteDisplay.innerText = keyMappings[key]; // noteDisplay text
     }
 });
   
@@ -146,3 +147,17 @@ document.body.addEventListener('keyup', function(e) {
       pianoKey.classList.remove('pressed');
     }
 });
+
+//fixing lag
+
+const noteNames = ['C3', 'Db3', 'D3', 'Eb3', 'E3', 'F3', 'Gb3', 'G3',
+  'Ab3', 'A3', 'Bb3', 'B3', 'C4', 'Db4', 'D4', 'Eb4', 'E4', 'F4',
+  'Gb4', 'G4', 'Ab4', 'A4', 'Bb4', 'B4', 'C5', 'Db5', 'D5', 'Eb5',
+  'E5', 'F5', 'Gb5', 'G5', 'Ab5', 'A5', 'Bb5', 'B5', 'C6'];
+
+const audioFiles = {};
+
+for (const note of noteNames) {
+  audioFiles[note] = new Audio(`notes/${note}.mp3`);
+  audioFiles[note].preload = 'auto';
+}
