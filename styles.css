@@ -178,39 +178,45 @@ a:hover {
     color: var(--clr-cyan);
 }
 
-@media (max-width: 1000px) {
+/*tablets*/
+@media (max-width: 1008px) {
   
     keys {
         height: 50px;
     }
-    .zero, .two {
+    .two {
         display: none;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     credit {
         font: 0.5rem;
     }
-
-    small {
-        display: none;
-    }
     
     .keyblack {
-    margin-left: -20px;
-    margin-right: -20px;
-    width: 40px;
+    margin-left: -17px;
+    margin-right: -17px;
+    width: 34px;
     }
+}
 
-    .keyboard {
+/*phones*/
+@media (max-width: 720px) {
+     .zero {
         display: none;
-    }
+     }
+
+     .keyblack {
+        margin-left: -20px;
+        margin-right: -20px;
+        width: 40px;
+        }
+
+        .keyboard, small, #noteDisplay {
+            display: none;
+        }
     
-    noteDisplay {
-        width: moz-fit-content;
-        width: fit-content;
-    }
 }
