@@ -138,7 +138,7 @@ const keyMappings = {
 noteDisplay = document.querySelector('#noteDisplay');
 
 document.body.addEventListener('keydown', function(e) {
-    const key = e.key;
+    const key = e.key.toLowerCase();
     if (keyMappings[key]) {
       let pianoKey = document.querySelector('#' + keyMappings[key]);
       pianoKey.classList.add('pressed');
