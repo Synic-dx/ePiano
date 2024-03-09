@@ -40,8 +40,15 @@ const C6 = document.querySelector('#C6');
 let noteDirectory = 'notes';
 
 function playNote(note) {
-  audioFiles[note].play();
-  audioFiles[note].onended = function () {
+  // If the audio file is already playing, we clone it and play the clone.  
+  if (!audioFiles[note].paused) {
+    audioFiles[note].cloneNode(true).play();
+  } else {
+    audioFiles[note].currentTime = 0;
+    audioFiles[note].play();
+  }
+
+audioFiles[note].onended = function () {
     audioFiles[note].currentTime = 0;
   };
 }
