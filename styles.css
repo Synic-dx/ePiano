@@ -75,6 +75,10 @@ credit {
     text-align: right;
 }
 
+.note {
+    font-family: Kanit, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+}
 .keys {
     display: flex;
     overflow: none;
@@ -194,7 +198,12 @@ a:hover {
     small {
         display: none;
     }
-
+    
+    .keyblack {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: 40px;
+    }
     noteDisplay {
         width: moz-fit-content;
         width: fit-content;

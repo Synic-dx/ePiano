@@ -168,3 +168,12 @@ for (const note of noteNames) {
   audioFiles[note] = new Audio(`notes/${note}.mp3`);
   audioFiles[note].preload = 'auto';
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  let keys = document.querySelectorAll(".keys div");
+  keys.forEach(function(key) {
+    let span = key.querySelector("span");
+    span.textContent = key.id;
+  });
+});
