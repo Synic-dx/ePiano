@@ -69,6 +69,15 @@ h1 {
     align-items: center;
     text-align: center;
     padding: 12px 0;
+    font-size: 1.3rem;
+}
+
+#noteDisplay:hover {
+    box-shadow: 0 0 3px var(--clr-cyan);
+}
+
+.hidden {
+    display: none;
 }
 
 credit {
@@ -92,6 +101,14 @@ credit {
     align-self: center;
     height: 55%;
     margin-top: 15px;
+}
+
+#kak {
+    font-size: 1rem;
+}
+
+#synic {
+    font-size: 1.1rem;
 }
 
 small {
@@ -122,11 +139,15 @@ small {
 }
 
 .keywhite.pressed {
-    background-color: #ffffffc0;
+    background-color: #ffffffaf;
+}
+
+.keyboard {
+    text-transform: uppercase;
 }
 
 .keyblack {
-    background-color: #18181b;
+    background-color: #131314;
     height: 60%;
     position: relative;
     top: -41%;
@@ -145,8 +166,12 @@ small {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.keyblack:hover, .keyblack.pressed {
-    background-color: #2d2e36;
+.keyblack:hover {
+    background-color: #1c1d20;
+}
+
+.keyblack.pressed {
+    background-color: #25262c;
 }
 
 footer {
