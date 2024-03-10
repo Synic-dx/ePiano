@@ -97,8 +97,10 @@ const keyMappings = {
 //pressed animation (keyboard) and playing audio
 let noteDisplay = document.querySelector('#noteDisplay');
 const pressedKeys = {}; //fixed bell ringing issue
+let loaded = false;
 
 document.body.addEventListener('keydown', function(e) {
+  if (loaded === true){
   const key = e.key.toLowerCase();
   if(key === ' ') {    // linking spacebar with notedisplay
     noteDisplay.click();
@@ -110,7 +112,10 @@ document.body.addEventListener('keydown', function(e) {
     noteDisplay.innerText = keyMappings[key];
     pressedKeys[key] = true;
   }
-});
+}
+else{
+  alert('ePiano is loading');
+}});
 
 document.body.addEventListener('keyup', function(e) {
   const key = e.key.toLowerCase();
@@ -153,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setTimeout(function() {
     noteDisplay.innerText = originalText;
+    loaded = true;
   }, 10000);
 
   let keys = document.querySelectorAll(".keys div");
