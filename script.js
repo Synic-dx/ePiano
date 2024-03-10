@@ -17,7 +17,7 @@ function playNote(note) {
     audio.currentTime = 0;
   }
 
-  audio.volume = 1.0; // Max volume
+  audio.volume = 1.0;
   audio.play();
 
   audio.onended = function () {
@@ -94,28 +94,28 @@ const keyMappings = {
   '\u005C': 'C6',
 };
 
-//pressed animation (keyboard) and playing audio
 let noteDisplay = document.querySelector('#noteDisplay');
+let originalText = noteDisplay.innerText;
 const pressedKeys = {}; //fixed bell ringing issue
 let loaded = false;
 
 document.body.addEventListener('keydown', function(e) {
   if (loaded === true){
-  const key = e.key.toLowerCase();
-  if(key === ' ') {    // linking spacebar with notedisplay
-    noteDisplay.click();
+    const key = e.key.toLowerCase();
+    if(key === ' ') {    // linking spacebar with notedisplay
+      noteDisplay.click();
+    }
+    if (keyMappings[key] && !pressedKeys[key]) {
+      let pianoKey = pianoKeys[keyMappings[key]];
+      addPressed(pianoKey);
+      playNote(keyMappings[key]);
+      noteDisplay.innerText = keyMappings[key];
+      pressedKeys[key] = true;
+    }
+  } else {
+    alert('ePiano is loading');
   }
-  if (keyMappings[key] && !pressedKeys[key]) {
-    let pianoKey = pianoKeys[keyMappings[key]];
-    addPressed(pianoKey);
-    playNote(keyMappings[key]);
-    noteDisplay.innerText = keyMappings[key];
-    pressedKeys[key] = true;
-  }
-}
-else{
-  alert('ePiano is loading');
-}});
+});
 
 document.body.addEventListener('keyup', function(e) {
   const key = e.key.toLowerCase();
@@ -128,17 +128,12 @@ document.body.addEventListener('keyup', function(e) {
 
 //Audio file linking
 const noteNames = ['C3', 'Db3', 'D3', 'Eb3', 'E3', 'F3', 'Gb3', 'G3', 'Ab3', 'A3', 'Bb3', 'B3', 'C4', 'Db4', 'D4', 'Eb4', 'E4', 'F4', 'Gb4', 'G4', 'Ab4', 'A4', 'Bb4', 'B4', 'C5', 'Db5', 'D5', 'Eb5', 'E5', 'F5', 'Gb5', 'G5', 'Ab5', 'A5', 'Bb5', 'B5', 'C6'];
-const audioFiles = {};
+let audioFiles = {};
 
-async function loadAudioFiles() {
-  for (const note of noteNames) {
-    audioFiles[note] = await preloadAudio(`notes/${note}.mp3`);
-  }
-};
-
-// Use an async function for audio preloading
+//audio preloading
 async function preloadAudio(url) {
   const audio = new Audio();
+  
   const load = async () => {
     return new Promise((resolve, reject) => {
       audio.src = url;
@@ -146,28 +141,35 @@ async function preloadAudio(url) {
       audio.onerror = reject;
     });
   };
+  
   await load();
   return audio;
-};
+}
+
+async function loadAudioFiles() {
+  let notePromises = noteNames.map(note => preloadAudio(`notes/${note}.mp3`));
+  let audios = await Promise.all(notePromises);
+  
+  for(let i = 0; i < noteNames.length; i++) {
+    audioFiles[noteNames[i]] = audios[i];
+  }
+}
 
 // Note Names to keys
 document.addEventListener("DOMContentLoaded", function() {
-  //loading screen
-  const originalText = noteDisplay.innerText;
   noteDisplay.innerText = "Loading...";
-
-  setTimeout(function() {
-    noteDisplay.innerText = originalText;
-    loaded = true;
-  }, 10000);
-
+  
   let keys = document.querySelectorAll(".keys div");
   keys.forEach(function(key) {
     let span = key.querySelector("span");
     span.textContent = key.id;
   });
-  // Call loadAudioFiles() after DOM is ready
-  loadAudioFiles();
+  
+  // load when page is ready
+  loadAudioFiles().then(() => {
+    noteDisplay.innerText = originalText;
+    loaded = true;
+  });
 });
 
 //Toggle Note Display
@@ -178,8 +180,6 @@ noteDisplay.addEventListener('click', function() {
       element.classList.toggle('hidden');
   });
 });
-
-let originalText;
 
 noteDisplay.addEventListener('mouseenter', function() {
     originalText = noteDisplay.innerText;
