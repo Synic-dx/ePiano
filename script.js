@@ -147,6 +147,14 @@ async function preloadAudio(url) {
 
 // Note Names to keys
 document.addEventListener("DOMContentLoaded", function() {
+  //loading screen
+  const originalText = noteDisplay.innerText;
+  noteDisplay.innerText = "Loading...";
+
+  setTimeout(function() {
+    noteDisplay.innerText = originalText;
+  }, 10000);
+
   let keys = document.querySelectorAll(".keys div");
   keys.forEach(function(key) {
     let span = key.querySelector("span");
