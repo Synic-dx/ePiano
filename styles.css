@@ -6,7 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  --clr-cyan: rgb(0, 238, 255);
+  --clr-cyan: rgba(11, 217, 231, 0.904);
 }
 
 body {
@@ -72,6 +72,7 @@ h1 {
     text-align: center;
     padding: 12px 0;
     font-size: 1.3rem;
+    text-shadow: 0 0 3px var(--clr-cyan);
 }
 
 #noteDisplay:hover {
