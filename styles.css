@@ -262,7 +262,7 @@ a:hover {
 
         #piano {
             position: absolute;
-            top: 5px;
+            top: 20vh;
            }
 
            .keyboard, #noteDisplay {
