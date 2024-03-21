@@ -9,17 +9,11 @@ let noteDirectory = 'notes';
 
 // Playing the note (at max volume)
 function playNote(note) {
-  let audio = audioFiles[note];
-
-  if (!audio.paused) {
-    audio = audio.cloneNode(true);
-  } else {
-    audio.currentTime = 0;
-  }
+  let audio = audioFiles[note].cloneNode(true);  // Clone Audio object
 
   audio.volume = 1.0;
   audio.play();
-
+  
   audio.onended = function () {
     audio.currentTime = 0;
   };
